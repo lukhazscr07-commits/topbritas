@@ -1323,30 +1323,48 @@ body {
 }
 
 /* ========================================================== */
-/* --- VÍDEO E RESPONSABILIDADE SOCIAL (PÁGINA EMPRESA)   --- */
+/* --- VÍDEO INSTITUCIONAL (VISUAL CLEAN E MINIMALISTA)   --- */
 /* ========================================================== */
 
-/* Container Responsivo para Vídeo do YouTube/Vimeo */
-.video-wrapper {
+.video-wrapper-moderno {
     position: relative;
-    padding-bottom: 56.25%; /* Mantém a proporção exata de 16:9 */
-    height: 0;
-    overflow: hidden;
-    max-width: 900px; /* Limita a largura para não ficar gigante em telas grandes */
+    width: 100%;
+    max-width: 800px; /* Tamanho contido e elegante no centro da tela */
     margin: 0 auto;
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0, 30, 45, 0.2);
-    border: 4px solid var(--branco); /* Moldura elegante */
+    border-radius: 12px; /* Curvatura mais suave e discreta */
+    overflow: hidden;
+    
+    /* Sombra ultra suave e borda quase invisível (Estilo minimalista) */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+    border: 1px solid rgba(0, 0, 0, 0.05); 
+    
+    /* Proporção original exata para não gerar barras pretas do YouTube */
+    aspect-ratio: 16 / 9;
 }
 
-.video-wrapper iframe,
-.video-wrapper video {
+.video-wrapper-moderno iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 16px;
+    border: none;
+}
+
+/* Proteção para navegadores muito antigos */
+@supports not (aspect-ratio: 16 / 9) {
+    .video-wrapper-moderno {
+        padding-bottom: 56.25%; 
+        height: 0;
+    }
+}
+
+/* Ajustes para Celulares */
+@media (max-width: 768px) {
+    .video-wrapper-moderno {
+        border-radius: 8px; /* Borda um pouco menor no celular */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Sombra ainda mais leve */
+    }
 }
 
 /* ========================================================== */
