@@ -1,0 +1,1656 @@
+/* Variáveis de Identidade TopBritas */
+:root {
+    --azul-top: #004160;
+    --vermelho-top: #84110A;
+    --branco: #FFFFFF;
+    --fundo-claro: #f4f4f4;
+    --texto-escuro: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--branco);
+    color: var(--texto-escuro);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background-color: var(--azul-top);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--branco);
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--vermelho-top);
+}
+
+.menu-desktop a {
+    color: var(--branco);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.btn-orcamento {
+    background-color: var(--vermelho-top);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--azul-top);
+    color: var(--branco);
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.destaque-vermelho {
+    color: var(--vermelho-top);
+}
+
+/* Produtos */
+.produtos-section {
+    padding: 80px 0;
+    background-color: var(--fundo-claro);
+    text-align: center;
+}
+
+.produtos-section h2 {
+    color: var(--azul-top);
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.card-produto {
+    background: var(--branco);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-top: 4px solid var(--azul-top);
+    transition: transform 0.3s;
+}
+
+.card-produto:hover {
+    transform: translateY(-5px);
+    border-top-color: var(--vermelho-top);
+}
+
+.img-placeholder {
+    height: 150px;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    color: var(--azul-top);
+    font-weight: bold;
+}
+
+/* --- Ajustes Mobile (Carrossel e Dots) --- */
+.slider-dots {
+    display: none; /* Oculto no desktop */
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: var(--vermelho-top);
+}
+
+@media (max-width: 768px) {
+    .carrossel-container {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 10px;
+        /* Esconde a barra de rolagem */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    .carrossel-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .produtos-grid {
+        display: flex;
+        gap: 15px;
+    }
+
+    .card-produto {
+        min-width: 80vw; /* Ocupa 80% da tela mobile */
+        scroll-snap-align: center;
+    }
+
+    .slider-dots {
+        display: flex;
+    }
+}
+
+/* --- Assistente Virtual --- */
+.chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* A caixa sobe exatamente acima do botão */
+.chat-box {
+    width: 300px;
+    background: var(--branco);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+    display: none; /* Oculta por padrão */
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--azul-top);
+}
+
+.chat-box.ativo {
+    display: flex;
+}
+
+.chat-header {
+    background: var(--azul-top);
+    color: var(--branco);
+    padding: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-fechar {
+    background: none;
+    border: none;
+    color: var(--branco);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chat-body {
+    padding: 15px;
+    height: 150px;
+    background-color: var(--fundo-claro);
+    font-size: 14px;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.chat-input button {
+    background: var(--vermelho-top);
+    color: var(--branco);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ========================================================== */
+/* --- NOVO BOTÃO FLUTUANTE DO CHAT (FOTO + NOTIFICAÇÃO)  --- */
+/* ========================================================== */
+
+.btn-vicentinho-img {
+    position: relative;
+    width: 65px;  /* Tamanho da bolinha */
+    height: 65px;
+    border-radius: 50%; /* Deixa perfeitamente redondo */
+    border: 3px solid var(--azul-top); /* Borda com a cor da marca */
+    background-color: var(--branco);
+    cursor: pointer;
+    padding: 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Sombra elegante */
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Remove bordas nativas de botões */
+    outline: none; 
+}
+
+/* Efeito ao passar o mouse */
+.btn-vicentinho-img:hover {
+    transform: scale(1.1) translateY(-5px);
+}
+
+/* Ajuste perfeito da foto dentro do botão */
+.btn-vicentinho-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Bolinha Vermelha de Notificação ("1") */
+.badge-notificacao {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    background-color: var(--vermelho-top); /* Vermelho chamativo */
+    color: var(--branco);
+    font-size: 13px;
+    font-weight: bold;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--branco); /* Borda branca para destacar da foto */
+    
+    /* Ativa a animação piscante (pulsar) */
+    animation: pulsarNotificacao 2s infinite; 
+}
+
+/* Animação que faz a notificação pulsar como um radar */
+@keyframes pulsarNotificacao {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(132, 17, 10, 0.7); /* Cor do seu vermelho */
+    }
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(132, 17, 10, 0); /* Expande e some */
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(132, 17, 10, 0);
+    }
+}
+
+/* --- Novas Seções e Utilitários --- */
+.secao-padrao {
+    padding: 80px 0;
+}
+
+.bg-claro {
+    background-color: var(--fundo-claro);
+}
+
+.bg-azul {
+    background-color: var(--azul-top);
+    border-radius: 10px;
+}
+
+.text-center { text-align: center; }
+.text-branco { color: var(--branco) !important; }
+.mt-20 { margin-top: 20px; }
+
+.titulo-secao {
+    color: var(--azul-top);
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+
+.texto-descricao {
+    font-size: 1.1rem;
+    color: var(--texto-escuro);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- Hero Slider (Entrada com Imagens Passando) --- */
+.hero-slider-container {
+    position: relative;
+    width: 100%;
+    height: 90vh; /* Ocupa quase toda a tela ao entrar */
+    overflow: hidden;
+    background-color: var(--azul-top);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    /* Aqui está o segredo: 2.5 segundos para a imagem aparecer e sumir bem devagar */
+    transition: opacity 2.5s ease-in-out; 
+    z-index: 1;
+}
+
+.slide.ativo {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* --- Mapa de Localização --- */
+.mapa-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: #ddd;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border-radius: 10px;
+}
+
+/* --- Formulários de Contato e Vagas --- */
+.contato-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+@media (max-width: 768px) {
+    .contato-grid { grid-template-columns: 1fr; }
+    .hero-content h1 { font-size: 2.2rem; }
+}
+
+.box-contato {
+    padding: 40px;
+    background-color: var(--branco);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.form-padrao {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.form-padrao input, 
+.form-padrao textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn-enviar {
+    background-color: var(--vermelho-top);
+    color: var(--branco);
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-enviar:hover {
+    background-color: #630c07;
+}
+
+.btn-secundario {
+    background-color: var(--branco);
+    color: var(--azul-top);
+}
+
+.btn-secundario:hover {
+    background-color: #f4f4f4;
+}
+
+.upload-area {
+    text-align: center;
+    padding: 10px;
+    border: 2px dashed rgba(255,255,255,0.5);
+    border-radius: 5px;
+}
+
+.btn-upload {
+    color: var(--branco);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- Efeito de Montanha Arredondada no Topo --- */
+.shape-montanha {
+    /* Cria a curva suave na base */
+    border-radius: 0 0 50% 50% / 0 0 10vw 10vw;
+    
+    /* Sombra bem mais marcante, profunda e elegante */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+    
+    /* O SEGREDO: Garante que o slider e sua sombra fiquem POR CIMA da seção branca de baixo */
+    position: relative;
+    z-index: 10; 
+}
+
+@media (max-width: 768px) {
+    .shape-montanha {
+        border-radius: 0 0 50% 50% / 0 0 5vw 5vw;
+        /* Sombra levemente ajustada para não ficar exagerada no celular */
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); 
+    }
+}
+/* --- Botões de Chamada (CTAs) --- */
+.btn-destaque-grande {
+    display: inline-block;
+    background-color: var(--vermelho-top);
+    color: var(--branco);
+    padding: 18px 40px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 8px 15px rgba(132, 17, 10, 0.3);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn-destaque-grande:hover {
+    background-color: #630c07;
+    transform: translateY(-3px);
+}
+
+.btn-azul {
+    background-color: var(--azul-top);
+    box-shadow: 0 8px 15px rgba(0, 65, 96, 0.3);
+}
+
+.btn-azul:hover {
+    background-color: #002b40;
+}
+
+.block-link {
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    padding: 15px 0;
+    border-radius: 8px;
+}
+/* --- Seção Como Comprar (Passo a Passo) --- */
+.passo-a-passo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.passo-card {
+    background-color: var(--branco);
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eaeaea;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    background-clip: padding-box;
+}
+
+.passo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 65, 96, 0.15);
+    border-color: var(--azul-top);
+}
+
+.passo-numero {
+    background-color: var(--vermelho-top);
+    color: var(--branco);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 4px 10px rgba(132, 17, 10, 0.4);
+    transition: transform 0.3s;
+}
+
+.passo-card:hover .passo-numero {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.passo-card h3 {
+    color: var(--azul-top);
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+}
+
+.passo-card p {
+    font-size: 0.95rem;
+    color: var(--texto-escuro);
+    line-height: 1.6;
+}
+
+/* Linha conectora de progresso visível apenas em telas maiores (Desktop) */
+@media (min-width: 992px) {
+    .passo-a-passo-grid::before {
+        content: '';
+        position: absolute;
+        top: 60px; /* Altura exata para passar no meio dos círculos numéricos */
+        left: 10%;
+        right: 10%;
+        height: 4px;
+        background-color: var(--vermelho-top);
+        opacity: 0.15;
+        z-index: -1;
+    }
+}
+
+.chat-body {
+    padding: 15px;
+    height: 350px; /* Aumentei a altura para caber bem os botões */
+    background-color: var(--fundo-claro);
+    font-size: 14px;
+    overflow-y: auto; /* Adiciona barra de rolagem quando necessário */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================================================== */
+/* --- EFEITO PARALLAX (FUNDO FIXO) - SEÇÃO CATÁLOGO      --- */
+/* ========================================================== */
+.bg-parallax-catalogo {
+    position: relative;
+    /* Coloque o link/caminho da foto real da sua pedreira aqui dentro de url() */
+    background-image: url('IMG/DSC02509.jpg');
+    
+    /* É ESTA LINHA QUE DEIXA A IMAGEM PARADA AO ROLAR */
+    background-attachment: fixed; 
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 0; /* Dá mais espaço (altura) para a imagem aparecer bem */
+}
+
+/* Criando a película azul transparente por cima da imagem */
+.bg-parallax-catalogo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Cor Azul da TopBritas (RGB: 0, 65, 96) com 85% de visibilidade */
+    background-color: rgba(0, 65, 96, 0.85); 
+    z-index: 1;
+}
+
+/* Joga o texto e o botão para a frente da película azul */
+.bg-parallax-catalogo .conteudo-frente {
+    position: relative;
+    z-index: 2;
+}
+
+/* Força o título a ficar branco nessa seção específica */
+.bg-parallax-catalogo .titulo-secao {
+    color: var(--branco);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Dá um leve sombreado para leitura */
+}
+
+/* ========================================================== */
+/* --- ESTILOS DO CATÁLOGO DE PRODUTOS E CARRINHO         --- */
+/* ========================================================== */
+.pb-100 { padding-bottom: 120px; } /* Espaço para a barra não cobrir o último produto */
+
+.catalogo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.card-catalogo {
+    background-color: var(--branco);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid #eaeaea;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.card-catalogo:hover {
+    transform: translateY(-5px);
+    border-color: var(--azul-top);
+}
+
+/* Caixa onde a imagem fica guardada */
+.img-produto {
+    height: 160px;
+    background-color: #dbe4e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden; /* IMPORTANTE: Garante que a foto não vaze das bordas arredondadas */
+}
+
+/* Configuração da foto para preencher o espaço todo perfeitamente */
+.img-produto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Corta as sobras sem distorcer ou amassar a imagem */
+    transition: transform 0.4s ease; /* Prepara o efeito de animação */
+}
+
+/* Efeito Premium: A imagem dá um leve zoom quando o cliente passa o mouse no card */
+.card-catalogo:hover .img-produto img {
+    transform: scale(1.1);
+}
+
+.card-catalogo h3 {
+    color: var(--azul-top);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    height: 45px; /* Mantém os cartões alinhados se o nome for grande */
+}
+
+/* Área onde digita o volume */
+.controle-compra {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--fundo-claro);
+    border-radius: 30px;
+    padding: 5px 15px;
+    border: 1px solid #ccc;
+}
+
+.input-m3 {
+    width: 60px;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--texto-escuro);
+    outline: none;
+}
+
+.unidade {
+    color: #666;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* --- Barra Inferior (Carrinho Flutuante) --- */
+.barra-carrinho {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--azul-top);
+    color: var(--branco);
+    padding: 15px 0;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+    transform: translateY(100%); /* Fica escondida para baixo por padrão */
+    transition: transform 0.4s ease-in-out;
+    z-index: 1000;
+}
+
+.barra-carrinho.ativa {
+    transform: translateY(0); /* Sobe quando tem item */
+}
+
+.flex-carrinho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.resumo {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.resumo small {
+    font-weight: normal;
+    color: #aed3e6;
+}
+
+#qtd-itens {
+    color: var(--vermelho-top);
+    font-size: 1.4rem;
+    background: var(--branco);
+    padding: 2px 10px;
+    border-radius: 20px;
+}
+
+.btn-whatsapp-carrinho {
+    background-color: #25D366; /* Verde oficial do WhatsApp */
+    color: var(--branco);
+    border: none;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-whatsapp-carrinho:hover {
+    background-color: #1ebe5d;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .flex-carrinho {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .btn-whatsapp-carrinho {
+        width: 100%;
+    }
+}
+
+/* --- Botões de Quantidade (- e +) --- */
+.controle-compra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--fundo-claro);
+    border-radius: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.btn-qtd {
+    background-color: var(--azul-top);
+    color: var(--branco);
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.btn-qtd:active { transform: scale(0.9); }
+.btn-qtd:hover { background-color: var(--vermelho-top); }
+
+.input-m3 {
+    width: 50px;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--texto-escuro);
+    outline: none;
+}
+
+/* --- Janela Modal (Resumo do Pedido) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 65, 96, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--branco);
+    width: 90%;
+    max-width: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.ativo .modal-content { transform: translateY(0); }
+
+.modal-header {
+    background-color: var(--azul-top);
+    color: var(--branco);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 { font-size: 1.2rem; margin: 0; }
+
+.btn-fechar-modal {
+    background: none; border: none; color: var(--branco);
+    font-size: 1.8rem; cursor: pointer; line-height: 1;
+}
+
+.modal-body { padding: 20px; max-height: 50vh; overflow-y: auto; }
+
+.lista-resumo-pedido { list-style: none; padding: 0; margin: 0; }
+
+.lista-resumo-pedido li {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid #eee;
+    font-size: 1rem; color: var(--texto-escuro);
+}
+
+.lista-resumo-pedido li:last-child { border-bottom: none; }
+
+.modal-footer {
+    background-color: var(--fundo-claro);
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.total-modal {
+    display: flex; justify-content: space-between;
+    font-size: 1.2rem; color: var(--azul-top);
+}
+
+
+/* --- Overlay com Gradiente (Imagem brilhando no topo) --- */
+.overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* Gradiente sutil, quase invisível em cima e escuro na base */
+    background: linear-gradient(to bottom, rgba(0, 65, 96, 0.05) 0%, rgba(0, 20, 35, 0.9) 100%); 
+    display: flex;
+    align-items: flex-end; 
+    justify-content: center;
+    padding-bottom: 50px; /* Deixa bem colado na parte de baixo */
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--branco);
+    width: 100%;
+}
+
+/* ========================================================== */
+/* --- AJUSTES DA LOGO E TEXTOS DO SLIDER (DESIGN PREMIUM)--- */
+/* ========================================================== */
+
+.logo-img {
+    max-height: 45px; 
+    width: auto;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.05); 
+}
+
+/* Caixa de vidro ultra elegante e compacta */
+.hero-text-box {
+    background: rgba(0, 25, 40, 0.25); /* Mais transparente */
+    backdrop-filter: blur(16px); /* Desfoque mais forte (Efeito Apple) */
+    -webkit-backdrop-filter: blur(16px); 
+    padding: 25px 35px; /* Caixa bem menor e mais justa */
+    max-width: 650px; /* Largura reduzida para não esticar muito */
+    border-radius: 16px; /* Curvatura delicada */
+    
+    /* Efeito de Vidro 3D: borda superior mais clara que a inferior */
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    
+    margin: 0 auto;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); 
+    
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUpBox 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; 
+    animation-delay: 0.2s; 
+}
+
+.slide.ativo .hero-text-box {
+    animation: fadeUpBox 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.2s;
+}
+
+/* Título ainda menor e mais refinado */
+.hero-text-box h1 {
+    font-size: 1.7rem; /* Reduzido para ficar mais delicado */
+    font-weight: 700;
+    letter-spacing: -0.5px; 
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4); 
+    margin-bottom: 5px; /* Mais colado no texto de baixo */
+}
+
+/* Texto de apoio super sutil */
+.hero-text-box p {
+    font-size: 0.9rem; /* Reduzido para um toque minimalista */
+    font-weight: 300; 
+    color: rgba(255, 255, 255, 0.85); 
+    line-height: 1.4;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+@keyframes fadeUpBox {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajustes finos para o mobile (celular) */
+@media (max-width: 768px) {
+    .logo-img { max-height: 35px; }
+    
+    .overlay {
+        padding-bottom: 30px; 
+    }
+    
+    .hero-text-box {
+        padding: 15px 20px; /* Caixa ainda mais justa no celular */
+        border-radius: 12px;
+        width: 85%; 
+    }
+    
+    /* Fontes ainda menores para telas pequenas */
+    .hero-text-box h1 { font-size: 1.3rem; }
+    .hero-text-box p { font-size: 0.85rem; }
+}
+/* --- Botão do WhatsApp (Verde Oficial) --- */
+.btn-whatsapp-link {
+    background-color: #25D366 !important; /* Força a cor verde */
+    box-shadow: 0 8px 15px rgba(37, 211, 102, 0.3) !important;
+}
+
+.btn-whatsapp-link:hover {
+    background-color: #1ebe5d !important;
+    transform: translateY(-3px);
+}
+
+/* --- Avatar da Inteligência Virtual (Chat) --- */
+.avatar-bot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%; /* Deixa a imagem perfeitamente redonda */
+    object-fit: cover; /* Garante que a foto não fique achatada */
+    border: 2px solid rgba(255, 255, 255, 0.8); /* Bordinha branca para destacar */
+    background-color: var(--branco); /* Fundo branco caso a imagem seja transparente */
+}
+
+/* ========================================================== */
+/* --- SEÇÃO DE PARCEIROS (VISUAL CLEAN E MODERNO)        --- */
+/* ========================================================== */
+
+/* Wrapper que controla o hover geral */
+.partners-wrapper {
+    position: relative;
+    max-width: 900px; 
+    margin: 0 auto;
+}
+
+.partners-strip {
+    background-color: var(--azul-top); 
+    /* Bordas totalmente arredondadas (estilo pílula ultramoderno) */
+    border-radius: 50px; 
+    padding: 30px 0; 
+    /* Borda vermelha mais grossa para destacar */
+    border: 3px solid var(--vermelho-top); 
+    overflow: hidden;
+    position: relative;
+    /* Sombra mais suave, espalhada e clean */
+    box-shadow: 0 15px 35px rgba(0, 30, 45, 0.15);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Efeito premium: A caixa inteira flutua suavemente ao passar o mouse */
+.partners-wrapper:hover .partners-strip {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 45px rgba(0, 30, 45, 0.25);
+}
+
+/* Sombreamento nas laterais para as logos sumirem devagar */
+.partners-strip::before,
+.partners-strip::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.partners-strip::before {
+    left: 0;
+    background: linear-gradient(to right, var(--azul-top) 0%, transparent 100%);
+}
+
+.partners-strip::after {
+    right: 0;
+    background: linear-gradient(to left, var(--azul-top) 0%, transparent 100%);
+}
+
+.partners-track {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Respiro maior entre as logos (design mais limpo) */
+    width: max-content;
+    animation: scrollPartners 30s linear infinite;
+}
+
+/* Pausa a esteira ao passar o mouse */
+.partners-wrapper:hover .partners-track {
+    animation-play-state: paused;
+}
+
+/* Logos delicadas */
+.partner-logo {
+    height: 24px; 
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1) opacity(0.6); /* Levemente mais transparentes no estado normal */
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.partner-logo:hover {
+    filter: brightness(1) invert(0) opacity(1); 
+    transform: scale(1.2); /* Cresce um pouco mais ao focar nela */
+}
+
+/* Mensagem fora da caixa azul */
+.partner-message {
+    margin-top: 18px;
+    color: var(--azul-top);
+    font-weight: 500; /* Fonte um pouco mais leve para não pesar o design */
+    font-size: 1.05rem;
+    opacity: 0; 
+    transform: translateY(-15px); 
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Mostra a mensagem e desliza para baixo */
+.partners-wrapper:hover .partner-message {
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+@keyframes scrollPartners {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+}
+
+/* Ajustes perfeitos para o Celular */
+@media (max-width: 768px) {
+    .partners-track { gap: 40px; }
+    
+    .partner-logo { 
+        height: 18px; 
+    } 
+    
+    .partners-strip {
+        padding: 22px 0; 
+        border-radius: 35px; /* Mantém a proporção redonda em telas pequenas */
+        border-width: 2px; /* Borda um pouco mais fina no mobile para não parecer grosseira */
+    }
+
+    .partner-message { 
+        font-size: 0.9rem; 
+        margin-top: 12px;
+    }
+}
+
+/* ========================================================== */
+/* --- PÁGINA: A EMPRESA (APRESENTAÇÃO COMERCIAL)         --- */
+/* ========================================================== */
+
+/* Banner Principal da Empresa */
+.hero-empresa {
+    position: relative;
+    height: 50vh;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito Parallax suave */
+}
+
+.overlay-empresa {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to right, rgba(0, 65, 96, 0.9), rgba(0, 30, 45, 0.7));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-banner {
+    color: var(--branco);
+    font-size: 3rem;
+    font-weight: 800;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    margin-bottom: 15px;
+}
+
+.subtitulo-banner {
+    color: #e6f2f8;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+/* Grid de Texto e Imagem Lado a Lado */
+.grid-apresentacao {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.texto-apresentacao p {
+    font-size: 1.15rem;
+    color: var(--texto-escuro);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.imagem-apresentacao img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 65, 96, 0.15);
+    object-fit: cover;
+}
+
+/* ========================================================== */
+/* --- MISSÃO, VISÃO E VALORES (DESIGN MODERNO COM FOTOS) --- */
+/* ========================================================== */
+
+.grid-mvv {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* O Card em si (Visual mais limpo e arredondado) */
+.card-mvv {
+    background-color: var(--branco);
+    padding: 40px 30px;
+    border-radius: 24px; /* Bordas bem modernas */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra difusa e clara */
+    text-align: center;
+    position: relative;
+    border: 1px solid #eaeaea; 
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Efeito 3D e destaque de borda ao passar o mouse */
+.card-mvv:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 45px rgba(0, 65, 96, 0.12);
+    border-color: var(--vermelho-top); /* Borda fica vermelha ao focar */
+}
+
+/* Container circular que guarda as imagens */
+.img-mvv-container {
+    width: 90px; 
+    height: 90px;
+    margin: 0 auto 25px auto;
+    border-radius: 50%; /* Faz a imagem ficar num círculo perfeito */
+    background-color: #f4f7f9; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 65, 96, 0.15); 
+    border: 4px solid var(--branco); /* Moldura branca chique */
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* A imagem dentro do container */
+.img-mvv-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Preenche sem achatar a imagem */
+}
+
+/* Animação na foto: dá um leve zoom quando o cliente foca no card */
+.card-mvv:hover .img-mvv-container {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 15px 25px rgba(0, 65, 96, 0.25);
+}
+
+.card-mvv h3 {
+    color: var(--azul-top);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.card-mvv p {
+    color: var(--texto-escuro);
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+.lista-valores {
+    list-style: none;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.lista-valores li {
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    color: var(--texto-escuro);
+    padding-left: 25px;
+    position: relative;
+}
+
+/* Marcador personalizado para a lista de Valores */
+.lista-valores li::before {
+    content: '✔';
+    color: var(--vermelho-top);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* ========================================================== */
+/* --- VÍDEO E RESPONSABILIDADE SOCIAL (PÁGINA EMPRESA)   --- */
+/* ========================================================== */
+
+/* Container Responsivo para Vídeo do YouTube/Vimeo */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Mantém a proporção exata de 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 900px; /* Limita a largura para não ficar gigante em telas grandes */
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 30, 45, 0.2);
+    border: 4px solid var(--branco); /* Moldura elegante */
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+}
+
+/* ========================================================== */
+/* --- INCENTIVOS À COMUNIDADE (CARDS COM FOTO)           --- */
+/* ========================================================== */
+
+.grid-incentivos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* O cartão branco que flutua no fundo azul */
+.card-incentivo {
+    background-color: var(--branco);
+    border-radius: 20px;
+    overflow: hidden; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: none;
+}
+
+.card-incentivo:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4);
+}
+
+/* Caixa que segura a foto no topo do cartão */
+.img-incentivo {
+    width: 100%;
+    height: 220px; /* Mantém todas as fotos do mesmo tamanho */
+    overflow: hidden;
+    border-bottom: 4px solid; /* Linha colorida passa a ficar debaixo da foto */
+}
+
+/* Cores específicas para a linha debaixo de cada foto */
+.card-incentivo.esporte .img-incentivo { border-bottom-color: #28a745; } /* Verde */
+.card-incentivo.cultura .img-incentivo { border-bottom-color: #ffc107; } /* Amarelo */
+.card-incentivo.educacao .img-incentivo { border-bottom-color: var(--vermelho-top); } /* Vermelho TopBritas */
+
+/* A foto em si preenchendo a caixa */
+.img-incentivo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* Dá um zoom suave na foto ao passar o mouse no cartão */
+.card-incentivo:hover .img-incentivo img {
+    transform: scale(1.1);
+}
+
+/* Caixa de texto abaixo da foto */
+.conteudo-incentivo {
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Estica o cartão para os botões ficarem todos na mesma altura */
+}
+
+.conteudo-incentivo h3 {
+    color: var(--azul-top);
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+}
+
+.conteudo-incentivo p {
+    color: var(--texto-escuro);
+    line-height: 1.6;
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Empurra o botão de download sempre para a base */
+}
+
+/* Estilo especial para o Botão do "Olá Vizinho" */
+.btn-download-vizinho {
+    display: inline-block;
+    background-color: var(--vermelho-top);
+    color: var(--branco);
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(132, 17, 10, 0.3);
+}
+
+.btn-download-vizinho:hover {
+    background-color: #aa170d; /* Um tom de vermelho mais escuro */
+    transform: scale(1.05);
+}
+
+/* ========================================================== */
+/* --- SEÇÃO DE LOCALIZAÇÃO (DESIGN CARD PREMIUM)         --- */
+/* ========================================================== */
+
+/* Transforma a área de mapa e texto em um cartão único e sofisticado */
+.card-localizacao-premium {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide meio a meio */
+    background-color: var(--branco);
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 30, 45, 0.08); /* Sombra difusa e elegante */
+    border: 1px solid #eaeaea;
+    overflow: hidden; /* Garante que o mapa respeite as bordas redondas */
+}
+
+/* Espaçamento interno da área de texto */
+.texto-localizacao {
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Etiqueta (Badge) moderna acima do título */
+.badge-local {
+    background-color: rgba(220, 53, 69, 0.1); 
+    color: var(--vermelho-top);
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Caixa do mapa projetada para esticar perfeitamente no lado direito */
+.mapa-container-grid {
+    width: 100%;
+    height: 100%;
+    min-height: 450px; 
+    position: relative;
+    background-color: #f4f7f9; /* Fundo de carregamento */
+}
+
+.mapa-container-grid iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Ajustes automáticos para Celulares e Tablets */
+@media (max-width: 992px) {
+    .card-localizacao-premium {
+        grid-template-columns: 1fr; /* Empilha texto em cima, mapa embaixo */
+    }
+    
+    .texto-localizacao {
+        padding: 40px 30px;
+        align-items: center; 
+    }
+    
+    .texto-localizacao .titulo-secao,
+    .texto-localizacao .texto-descricao {
+        text-align: center !important; 
+    }
+    
+    .mapa-container-grid {
+        min-height: 350px;
+    }
+}
+
+/* ========================================================== */
+/* --- AJUSTES DA NAVBAR (REDES SOCIAIS E WHATSAPP)       --- */
+/* ========================================================== */
+
+.menu-desktop {
+    display: flex;
+    align-items: center;
+}
+
+/* Linha sutil separando os links de texto dos ícones */
+.divisor-nav {
+    height: 24px;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 20px;
+    display: inline-block;
+}
+
+.nav-social {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre os ícones e o botão */
+}
+
+/* Estilo dos ícones do Instagram e Facebook */
+.icon-nav {
+    color: var(--branco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.icon-nav:hover {
+    color: var(--vermelho-top); /* Fica com a cor da marca ao passar o mouse */
+    transform: translateY(-3px); /* Levanta um pouquinho */
+}
+
+/* Transformando o antigo botão em um botão verde oficial do WhatsApp */
+.btn-orcamento.nav-whatsapp {
+    background-color: #25D366; 
+    color: var(--branco);
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 30px; /* Bordas arredondadas modernas */
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-orcamento.nav-whatsapp:hover {
+    background-color: #1ebe5d;
+    transform: scale(1.05);
+}
+
+/* Ajustes para quando a tela for um pouco menor (Tablets) */
+@media (max-width: 1024px) {
+    .menu-desktop a { margin-left: 12px; }
+    .divisor-nav { margin: 0 12px; }
+}
+
+/* ========================================================== */
+/* --- SEÇÃO DE CONTATO E VAGAS (CARDS MODERNOS COM FOTO) --- */
+/* ========================================================== */
+
+/* Cartões brancos que flutuam sobre o fundo azul */
+.box-card-moderno {
+    background-color: var(--branco);
+    border-radius: 20px;
+    overflow: hidden; /* Corta as pontas da imagem para respeitar a borda redonda */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito 3D ao passar o mouse */
+.box-card-moderno:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Espaço da imagem no topo do cartão */
+.img-card-topo {
+    width: 100%;
+    height: 220px; 
+    object-fit: cover; /* Preenche perfeitamente sem amassar a foto */
+    border-bottom: 4px solid var(--vermelho-top); /* Faixa vermelha elegante abaixo da foto */
+}
+
+/* Organização do texto e botão */
+.conteudo-card {
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Preenche a altura para os botões ficarem iguais */
+    text-align: center;
+}
+
+.conteudo-card p {
+    color: var(--texto-escuro);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Empurra o botão sempre para o limite inferior */
+}
+
+/* Botões gigantes e super visíveis de dentro do cartão */
+.btn-card {
+    display: block; 
+    width: 100%; /* Ocupa a largura total do espaço interno */
+    padding: 18px 20px;
+    font-size: 1.15rem;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(132, 17, 10, 0.3); 
+    box-sizing: border-box; /* Garante que o padding não estoure a tela */
+}
+
+/* Ajustes finos para celulares */
+@media (max-width: 768px) {
+    .img-card-topo {
+        height: 180px; /* Imagem um pouco menor no celular */
+    }
+    .conteudo-card {
+        padding: 25px 20px;
+    }
+    .btn-card {
+        font-size: 1.05rem;
+        padding: 15px;
+    }
+}

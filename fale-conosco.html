@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="IMG/Ativo 44CSC.png" type="image/png">
+    <title>Portal de Denúncias - Gerido por CSC Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #FF7A00;       
+            --primary-dark: #E66A00;  
+            --dark: #001F54;          
+            --bg-color: #f4f7f6;      
+            --text: #333;
+            --gold: #FFD700;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--dark);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        header img { max-width: 150px; }
+
+        .btn-back-home {
+            position: absolute;
+            left: 30px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-back-home:hover {
+            color: var(--primary);
+            transform: translateX(-5px);
+        }
+        .btn-back-home svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .header-tag {
+            color: white;
+            font-size: 0.8rem;
+            border-left: 2px solid var(--primary);
+            padding-left: 15px;
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        /* --- BANNER CINEMATOGRÁFICO --- */
+        .hero-banner {
+            width: 100vw;
+            height: 35vh;
+            min-height: 250px;
+            max-height: 400px;
+            background: linear-gradient(to bottom, rgba(0, 31, 84, 0.6), rgba(0, 31, 84, 0.95)), url('IMG/fundo BG.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 5px solid var(--primary);
+        }
+        
+        .hero-title {
+            color: white;
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            margin: 0;
+            animation: fadeInDown 0.8s ease-out;
+            text-align: center;
+        }
+
+        /* --- CULTURA E GESTÃO CSC --- */
+        .culture-section {
+            max-width: 800px;
+            margin: -30px auto 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 5;
+            text-align: center; 
+            border-top: 4px solid var(--primary);
+            animation: fadeInUp 0.8s ease-out;
+            box-sizing: border-box;
+        }
+
+        .culture-section h2 { color: var(--dark); font-size: 1.8rem; margin-bottom: 20px; margin-top: 0; }
+        .culture-section p { font-size: 1.1rem; color: #555; line-height: 1.7; margin: 0 0 15px 0; text-align: justify; text-justify: inter-word; }
+
+        /* --- BOTÕES DE AÇÃO SUPERIOR --- */
+        .action-nav-container {
+            max-width: 800px;
+            margin: 0 auto 10px auto;
+            width: 90%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            box-sizing: border-box;
+        }
+
+        .nav-action-btn {
+            padding: 20px 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .btn-transmitir { background-color: var(--primary); color: white; }
+        .btn-transmitir:hover { background-color: var(--primary-dark); transform: translateY(-4px); box-shadow: 0 12px 25px rgba(255, 122, 0, 0.3); }
+
+        .btn-acompanhar { background-color: var(--dark); color: white; }
+        .btn-acompanhar:hover { background-color: #001538; transform: translateY(-4px); box-shadow: 0 12px 25px rgba(0, 31, 84, 0.3); }
+
+        .nav-action-btn.active { box-shadow: inset 0 0 0 4px rgba(255,255,255,0.4), 0 10px 20px rgba(0,0,0,0.2); transform: scale(0.98); }
+        .nav-action-btn.inactive { opacity: 0.5; filter: grayscale(0.6); }
+
+        .initial-prompt { text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 60px; padding: 20px; animation: fadeIn 1s ease-in-out; }
+
+        /* --- ÁREAS DE CONTEÚDO --- */
+        .form-wrapper, .tracking-wrapper {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            width: 90%;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            animation: fadeIn 0.4s ease-out;
+            box-sizing: border-box;
+        }
+
+        /* --- FUNIL (STEPS) --- */
+        .step-header { text-align: center; color: var(--dark); margin-top: 0; margin-bottom: 30px; font-size: 1.5rem; }
+        .funnel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        
+        .funnel-card {
+            background: white;
+            border: 2px solid #e0e4e8;
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .funnel-card span.title { font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 8px; text-transform: uppercase; }
+        .funnel-card span.desc { font-size: 0.9rem; color: #666; }
+        
+        .funnel-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 25px rgba(255, 122, 0, 0.15); }
+        .funnel-card.anonimo { border-color: var(--dark); background-color: var(--dark); }
+        .funnel-card.anonimo span.title { color: white; }
+        .funnel-card.anonimo span.desc { color: #ccc; }
+        .funnel-card.anonimo:hover { background-color: var(--primary); border-color: var(--primary); }
+
+        .btn-voltar { background: transparent; color: #666; border: none; font-size: 1rem; font-weight: 600; cursor: pointer; padding: 10px 0; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 5px; transition: 0.3s; }
+        .btn-voltar:hover { color: var(--primary); }
+
+        .cultura-dinamica { background-color: #eef2f5; border-left: 4px solid var(--primary); padding: 15px 20px; border-radius: 0 8px 8px 0; margin-bottom: 25px; font-size: 0.95rem; color: var(--dark); text-align: justify; }
+        .anon-banner { background-color: var(--dark); color: white; padding: 15px; border-radius: 8px; text-align: center; font-weight: 700; margin-bottom: 25px; display: flex; align-items: center; justify-content: center; gap: 10px; letter-spacing: 1px; }
+
+        /* --- FORMULÁRIO --- */
+        .form-group { margin-bottom: 25px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--dark); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; text-align: left; }
+        
+        select.form-control { cursor: pointer; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23001F54' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 15px center; background-size: 20px; padding-right: 45px; -webkit-appearance: none; appearance: none; }
+        .form-control { width: 100%; padding: 18px; border: 2px solid #e0e4e8; border-radius: 8px; font-size: 1.05rem; background-color: #fff; color: #333; transition: all 0.3s ease; box-sizing: border-box; font-family: inherit; }
+        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(255, 122, 0, 0.1); }
+        textarea.form-control { min-height: 160px; resize: vertical; }
+
+        .btn-submit { width: 100%; background-color: var(--dark); color: white; border: none; padding: 20px; font-size: 1.2rem; font-weight: 800; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 10px; }
+        .btn-submit:hover { background-color: var(--primary); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255, 122, 0, 0.3); }
+        .btn-submit:disabled { background-color: #999; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        .star-rating-box { text-align: center; margin-bottom: 25px; padding: 15px; border: 2px dashed #e0e4e8; border-radius: 8px; background: #f9f9f9; }
+        .star-rating { display: flex; justify-content: center; gap: 10px; cursor: pointer; }
+        .star { font-size: 2.5rem; color: #ddd; transition: 0.2s; }
+        .star.active, .star:hover { color: var(--gold); transform: scale(1.1); }
+
+        /* --- ACOMPANHAR RELATO --- */
+        #tracking-result { display: none; margin-top: 40px; text-align: left; }
+        .status-badge { display: inline-block; padding: 10px 20px; border-radius: 30px; font-weight: bold; background: #eef2f5; color: var(--dark); margin-bottom: 30px; border-left: 4px solid var(--primary); }
+        .timeline { display: flex; justify-content: space-between; position: relative; margin-top: 20px; }
+        .timeline::before { content: ''; position: absolute; top: 20px; left: 0; width: 100%; height: 4px; background: #eee; z-index: 1; }
+        .step { position: relative; z-index: 2; text-align: center; flex: 1; }
+        .step .circle { width: 44px; height: 44px; background: #eee; border-radius: 50%; color: #999; display: flex; align-items: center; justify-content: center; font-weight: bold; margin: 0 auto 10px auto; border: 4px solid white; transition: 0.4s; }
+        .step p { font-size: 0.9rem; color: #999; margin: 0; font-weight: 600; }
+        .step.active .circle { background: var(--primary); color: white; box-shadow: 0 0 0 4px rgba(255, 122, 0, 0.2); }
+        .step.active p { color: var(--dark); }
+
+        /* --- BOTÕES INFERIORES FIXOS --- */
+        .bottom-actions { max-width: 800px; margin: 0 auto 50px auto; width: 90%; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; box-sizing: border-box; }
+        .action-card { background: white; padding: 25px; border-radius: 12px; text-align: center; color: var(--dark); font-weight: 700; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 2px solid transparent; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; }
+        .action-card svg { width: 40px; height: 40px; margin-bottom: 10px; fill: var(--primary); transition: 0.3s; }
+        .action-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 15px 30px rgba(255, 122, 0, 0.15); }
+        .card-anon { background: var(--dark); color: white; }
+        .card-anon svg { fill: white; }
+        .card-anon:hover { background: var(--primary); }
+
+        /* --- TELA DE SUCESSO --- */
+        #success-screen { display: none; text-align: center; background: white; padding: 50px 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 800px; margin: 0 auto 50px auto; border-top: 5px solid #25D366; animation: fadeInUp 0.5s ease; width: 90%; box-sizing: border-box; }
+        .protocol-box { background-color: #f8f9fa; border: 2px dashed #ccc; border-radius: 12px; padding: 30px; margin: 30px 0; }
+        .protocol-code { font-size: 2.2rem; font-weight: 800; color: var(--primary); letter-spacing: 3px; margin: 15px 0; word-break: break-all; }
+        .action-row { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn-action { display: flex; align-items: center; justify-content: center; gap: 8px; background: white; border: 2px solid var(--dark); color: var(--dark); padding: 12px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .btn-action:hover { background: var(--dark); color: white; }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* ========================================== */
+        /* BLINDAGEM MOBILE (COMPACTAÇÃO EXTREMA)     */
+        /* ========================================== */
+        @media (max-width: 768px) {
+            /* Header */
+            header { padding: 15px; flex-direction: row; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+            .btn-back-home { position: static; font-size: 0.8rem; }
+            header img { max-width: 110px; }
+            .header-tag { width: 100%; border-left: none; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 8px; padding-left: 0; text-align: center; font-size: 0.75rem; }
+            
+            /* Banner Azul */
+            .hero-banner { height: 20vh; min-height: 160px; max-height: 200px; border-bottom: 3px solid var(--primary); }
+            .hero-title { font-size: 1.8rem; letter-spacing: 1px; }
+
+            /* Textos e Containers */
+            .culture-section { padding: 20px 15px; width: 92%; margin-top: -20px; margin-bottom: 20px; }
+            .culture-section h2 { font-size: 1.4rem; margin-bottom: 10px; }
+            .culture-section p { font-size: 0.95rem; line-height: 1.5; margin-bottom: 10px; }
+            
+            /* Abas Lado a Lado */
+            .action-nav-container { display: flex; flex-direction: row; gap: 10px; width: 92%; }
+            .nav-action-btn { padding: 12px 5px; font-size: 0.85rem; border-radius: 8px; flex: 1; }
+            .initial-prompt { margin-bottom: 30px; font-size: 0.95rem; padding: 10px; }
+
+            /* Formulários e Cards */
+            .form-wrapper, .tracking-wrapper { padding: 20px 15px; width: 92%; margin-bottom: 30px; }
+            .step-header { font-size: 1.3rem; margin-bottom: 20px; }
+            .funnel-grid { grid-template-columns: 1fr; gap: 12px; margin-bottom: 15px; }
+            
+            /* Cards do Funil viram barras horizontais */
+            .funnel-card { flex-direction: row; padding: 15px; text-align: left; min-height: auto; gap: 15px; justify-content: flex-start; }
+            .funnel-card svg { width: 35px; height: 35px; margin-bottom: 0; flex-shrink: 0; }
+            .funnel-card span.title { font-size: 1.05rem; margin-bottom: 2px; }
+            .funnel-card span.desc { font-size: 0.85rem; }
+
+            .btn-voltar { font-size: 0.9rem; padding: 5px 0; margin-bottom: 15px; }
+            .cultura-dinamica { font-size: 0.9rem; padding: 12px; margin-bottom: 20px; border-left-width: 3px; }
+            .anon-banner { font-size: 0.8rem; padding: 10px; margin-bottom: 20px; }
+            
+            /* Inputs menores */
+            .form-group { margin-bottom: 18px; }
+            .form-group label { font-size: 0.85rem; margin-bottom: 5px; }
+            .form-control { padding: 14px; font-size: 0.95rem; }
+            textarea.form-control { min-height: 120px; }
+            .btn-submit { padding: 15px; font-size: 1.1rem; border-radius: 8px; }
+            
+            /* Ações de Baixo (Lado a Lado) */
+            .bottom-actions { display: flex; flex-direction: row; gap: 10px; width: 92%; margin-bottom: 30px; }
+            .action-card { padding: 15px 10px; font-size: 0.85rem; border-radius: 8px; flex: 1; }
+            .action-card svg { width: 28px; height: 28px; margin-bottom: 5px; }
+
+            /* Tela de Sucesso Mobile */
+            #success-screen { padding: 30px 15px; }
+            #success-screen > div:first-child { font-size: 60px; margin-bottom: 5px; }
+            #success-screen h2 { font-size: 1.6rem; }
+            #success-screen p { font-size: 0.95rem; }
+            .protocol-box { padding: 20px 15px; margin: 20px 0; }
+            .protocol-code { font-size: 1.5rem; letter-spacing: 1px; margin: 10px 0; }
+            .btn-action { width: 100%; font-size: 0.9rem; padding: 14px; }
+            
+            /* Timeline verticalizada para caber legal */
+            .timeline { flex-direction: column; gap: 15px; align-items: flex-start; margin-left: 10px; }
+            .timeline::before { width: 3px; height: 100%; top: 0; left: 20px; }
+            .step { display: flex; align-items: center; gap: 15px; text-align: left; }
+            .step .circle { width: 36px; height: 36px; font-size: 0.9rem; border-width: 3px; margin: 0; }
+            .step p { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="btn-back-home">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5"></path>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Voltar
+        </a>
+
+        <img src="IMG/Ativo 43CSC.png" alt="Logo CSC Support" onerror="this.src='IMG/Ativo 43CSC.png'">
+        
+        <div class="header-tag">
+            Canal Gerido de forma independente<br>pela <strong>CSC Support</strong>
+        </div>
+    </header>
+
+    <div class="hero-banner">
+        <h1 class="hero-title">Fale Conosco</h1>
+    </div>
+
+    <div class="culture-section" id="culture-block">
+        <h2>Canal Independente e Seguro</h2>
+        <p>Bem-vindo ao Portal Oficial gerido pela <strong>CSC Support</strong>. Somos uma empresa terceirizada, responsável por receber e administrar sugestões, relatos e denúncias direcionados à empresa de maneira 100% autônoma.</p>
+        <p>Nosso papel é tratar cada informação com rigoroso sigilo ético, garantindo que a sua identidade e os seus dados não sejam expostos indevidamente.</p>
+    </div>
+
+    <div class="action-nav-container" id="tabs-control">
+        <button class="nav-action-btn btn-transmitir" id="btn-transmitir-nav" onclick="switchTab('transmitir')">
+            📝 Relatar
+        </button>
+        <button class="nav-action-btn btn-acompanhar" id="btn-acompanhar-nav" onclick="switchTab('acompanhar')">
+            🔍 Acompanhar
+        </button>
+    </div>
+
+    <div class="initial-prompt" id="initial-prompt">
+         Por favor, selecione uma das opções acima para iniciar.
+    </div>
+
+    <div class="form-wrapper" id="main-form-area" style="display: none;">
+        
+        <div id="step-1-anonimato">
+            <h3 class="step-header">Como você deseja fazer este relato?</h3>
+            <div class="funnel-grid">
+                <div class="funnel-card" onclick="avancarPassoPerfil(false)">
+                    <span class="title">Identificado</span>
+                    <span class="desc">A CSC Support tratará seu nome com sigilo para contato.</span>
+                </div>
+                <div class="funnel-card anonimo" onclick="avancarPassoPerfil(true)">
+                    <span class="title">Anônimo</span>
+                    <span class="desc">Sigilo absoluto. Sem rastreio de nenhum dado seu.</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="step-2-perfil" style="display: none;">
+            <button class="btn-voltar" onclick="voltarPasso('step-1-anonimato', 'step-2-perfil')">← Voltar</button>
+            <h3 class="step-header">Qual é o seu vínculo com a empresa?</h3>
+            <div class="funnel-grid">
+                <div class="funnel-card" onclick="avancarPassoEmpresa('Colaborador')">
+                    <svg width="40" height="40" fill="var(--primary)" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    <div style="display: flex; flex-direction: column;">
+                        <span class="title">Sou Colaborador</span>
+                        <span class="desc">Funcionário, líder ou ex-colaborador.</span>
+                    </div>
+                </div>
+                <div class="funnel-card" onclick="avancarPassoEmpresa('Cliente')">
+                    <svg width="40" height="40" fill="var(--dark)" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    <div style="display: flex; flex-direction: column;">
+                        <span class="title" style="color:var(--dark);">Sou Cliente / Parceiro</span>
+                        <span class="desc">Clientes, fornecedores ou comunidade.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="step-3-empresa" style="display: none; text-align: center;">
+            <button class="btn-voltar" onclick="voltarPasso('step-2-perfil', 'step-3-empresa')">← Voltar e alterar vínculo</button>
+            <h3 class="step-header">Sobre qual empresa é o relato?</h3>
+            <p style="color: #666; margin-bottom: 25px; font-size: 0.95rem; text-align: center;">Selecione a empresa correspondente para direcionarmos sua manifestação corretamente.</p>
+            
+            <div class="form-group" style="margin: 0 auto 25px auto; text-align: left;">
+                <select id="empresaSelect" class="form-control" style="border: 2px solid var(--primary); font-weight: 600; color: var(--dark);">
+                    <option value="" disabled selected>Selecione a empresa...</option>
+                    <option value="Britaki">Britaki</option>
+                    <option value="Britaki Concreto">Britaki Concreto</option>
+                    <option value="Superbritas">Superbritas</option>
+                    <option value="Topbritas">Topbritas</option>
+                    <option value="Mineração São Vicente">Mineração São Vicente</option>
+                    <option value="Pedreira Vale Verde">Pedreira Vale Verde</option>
+                    <option value="Pedra Forte">Pedra Forte</option>
+                    <option value="CSC Support">CSC Support</option>
+                    <option value="CSC Automecânico">CSC Automecânico</option>
+                </select>
+            </div>
+
+            <button class="btn-submit" style="background-color: var(--primary);" onclick="confirmarEmpresa()">Continuar ➔</button>
+        </div>
+
+        <div id="step-4-formulario" style="display: none;">
+            <button class="btn-voltar" onclick="voltarPasso('step-3-empresa', 'step-4-formulario')">← Voltar e alterar empresa</button>
+            
+            <div id="anon-banner" class="anon-banner" style="display:none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                MODO ANÔNIMO - DADOS PROTEGIDOS PELA CSC
+            </div>
+
+            <div id="cultura-dinamica" class="cultura-dinamica"></div>
+
+            <form id="faleConoscoForm" onsubmit="enviarMensagem(event)" enctype="multipart/form-data">
+                <input type="hidden" id="perfilInput" name="perfil" value="">
+                <input type="hidden" id="empresaInput" name="empresa" value=""> 
+                <input type="hidden" id="notaInput" name="nota" value="0">
+
+                <div class="form-group" id="box-nome">
+                    <label for="nome">Seu Nome *</label>
+                    <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite seu nome">
+                </div>
+
+                <div class="form-group" id="box-email">
+                    <label for="email">Seu E-mail *</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Para receber retorno da CSC Support">
+                </div>
+
+                <div id="bloco-cliente-extras" style="display: none; border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 25px; background: #fafafa; padding: 15px; border-radius: 8px;">
+                    <div class="star-rating-box" style="padding: 10px;">
+                        <label style="margin-bottom: 10px; display: block; font-weight: 600; color: var(--dark); text-align: center; font-size:0.9rem;">Como avalia nossa operação/atendimento?</label>
+                        <div class="star-rating">
+                            <span class="star" onclick="setRating(1)">★</span>
+                            <span class="star" onclick="setRating(2)">★</span>
+                            <span class="star" onclick="setRating(3)">★</span>
+                            <span class="star" onclick="setRating(4)">★</span>
+                            <span class="star" onclick="setRating(5)">★</span>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="cidade">Sua Cidade</label>
+                            <input type="text" id="cidade" name="cidade" class="form-control" placeholder="Ex: Eunápolis">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="materialComprado">Qual material comprou?</label>
+                            <select id="materialComprado" name="material_comprado" class="form-control">
+                                <option value="" disabled selected>Selecione...</option>
+                                <option value="Brita">Brita</option>
+                                <option value="Areia Industrial">Areia Industrial</option>
+                                <option value="Concreto Usinado">Concreto Usinado</option>
+                                <option value="Outro / Ainda não comprei">Outro / Ainda não comprei</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipoMensagem">Classificação do Relato *</label>
+                    <select id="tipoMensagem" name="tipoMensagem" class="form-control" required>
+                        <option value="" disabled selected>Selecione o tipo de relato...</option>
+                        <option value="Denúncia">Denúncia (Sigilo Garantido pela CSC)</option>
+                        <option value="Elogio">Elogio</option>
+                        <option value="Informação">Informação</option>
+                        <option value="Reclamação">Reclamação</option>
+                        <option value="Solicitação">Solicitação</option>
+                        <option value="Sugestão">Sugestão</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="assunto">Assunto da Mensagem *</label>
+                    <select id="assunto" name="assunto" class="form-control" required></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="descricao">Descrição Detalhada *</label>
+                    <textarea id="descricao" name="descricao" class="form-control" placeholder="Descreva a situação com clareza para a equipe da CSC..." required></textarea>
+                </div>
+
+                <div class="form-group" style="background: #f9f9f9; padding: 15px; border: 2px dashed #ccc; border-radius: 8px;">
+                    <label for="evidencias" style="color: var(--primary);">Anexar Evidências (Máx. 3)</label>
+                    <p style="font-size: 0.8rem; color: #666; margin-top: -5px; margin-bottom: 10px;">Anexe fotos, PDFs ou documentos.</p>
+                    <input type="file" id="evidencias" name="evidencias[]" multiple class="form-control" style="border: none; background: transparent; padding: 0; margin-bottom: 10px;" onchange="validarArquivos(this)">
+                    <div id="lista-arquivos" style="font-size: 0.85rem; color: var(--dark); font-weight: 600; line-height: 1.5;"></div>
+                </div>
+
+                <button type="submit" class="btn-submit" id="btnEnviar">Enviar Relato</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="tracking-wrapper" id="tracking-area" style="display: none;">
+        <h2 style="color: var(--dark); margin-top:0; text-align: center;">Consulta de Protocolo</h2>
+        <p style="color: #666; margin-bottom: 20px; font-size: 0.95rem; text-align: center;">Insira o código gerado pela CSC Support para verificar o status.</p>
+        
+        <form onsubmit="consultarProtocolo(event)">
+            <div class="form-group" style="max-width: 500px; margin: 0 auto 15px auto;">
+                <input type="text" id="codigoBusca" class="form-control" placeholder="Ex: BRK-2026-A7X9" required style="text-align: center; font-weight: bold; text-transform: uppercase;">
+            </div>
+            <div style="text-align: center;">
+                <button type="submit" class="btn-submit" id="btnConsultar" style="max-width: 500px;">Consultar</button>
+            </div>
+        </form>
+
+        <div id="tracking-result">
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+            <div class="status-badge" id="status-texto">Status Atual: Buscando...</div>
+            
+            <div class="timeline">
+                <div class="step" id="step-1"><div class="circle">✓</div><p>Envio</p></div>
+                <div class="step" id="step-2"><div class="circle">2</div><p>Captação</p></div>
+                <div class="step" id="step-3"><div class="circle">3</div><p>Análise</p></div>
+                <div class="step" id="step-4"><div class="circle">4</div><p>Tratativa</p></div>
+            </div>
+
+            <div id="admin-reply-box" style="display: none; background: #f0fdf4; border-left: 4px solid #25D366; padding: 20px; border-radius: 0 8px 8px 0; margin-top: 25px; text-align: left;">
+                <h4 style="color: #16a34a; margin-top: 0; margin-bottom: 10px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    Conseguimos resolver!
+                </h4>
+                <p style="color: var(--dark); font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; text-transform: uppercase;">Resposta da Administração:</p>
+                <p id="admin-reply-text" style="color: #444; font-size: 0.95rem; line-height: 1.5; margin: 0; text-align: justify;"></p>
+            </div>
+            
+            <p style="color: #666; font-size: 0.85rem; margin-top: 25px; text-align: center;">* A equipe independente da CSC Support analisa cuidadosamente todos os relatos.</p>
+        </div>
+    </div>
+
+    <div id="success-screen">
+        <div style="font-size: 60px; margin-bottom: 5px;">✅</div>
+        <h2 style="color: var(--dark); font-size: 1.8rem; margin-top:0;">Registrado</h2>
+        <p style="font-size: 1rem; color: #555;">Relato recebido pela CSC Support. Guarde sua chave de acesso.</p>
+        
+        <div class="protocol-box">
+            <p style="margin:0; color: #888; font-weight: 600; font-size: 0.85rem; text-transform: uppercase;">CÓDIGO DE ACOMPANHAMENTO</p>
+            <div class="protocol-code" id="codigo-gerado">GERANDO...</div>
+            <div class="action-row">
+                <button type="button" class="btn-action" id="btnCopiar" onclick="copiarProtocolo()">Copiar Código</button>
+                <button type="button" class="btn-action" onclick="baixarComprovante()">💾 Salvar no Celular</button>
+            </div>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
+            <button onclick="irParaAcompanhamento()" class="btn-submit" style="background-color: var(--dark); margin: 0; padding: 15px;">🔍 Acompanhar</button>
+            <button onclick="window.location.reload()" class="btn-submit" style="background-color: #999; margin: 0; padding: 15px;">Finalizar</button>
+        </div>
+    </div>
+
+    <script>
+        let relatoState = { anonimo: false, perfil: '' };
+
+        function validarArquivos(input) {
+            const lista = document.getElementById('lista-arquivos');
+            lista.innerHTML = ''; 
+            
+            if (input.files.length > 3) {
+                alert("Aviso: Por questões de segurança, permitimos apenas o envio de até 3 arquivos por relato.");
+                input.value = ""; 
+                return;
+            }
+            
+            if (input.files.length > 0) {
+                let html = '<span style="color:var(--primary);">Arquivos Selecionados:</span><br>';
+                for(let i = 0; i < input.files.length; i++) {
+                    html += `📎 ${input.files[i].name}<br>`;
+                }
+                lista.innerHTML = html;
+            }
+        }
+
+        function setRating(n) {
+            const stars = document.querySelectorAll('.star');
+            const ratingInput = document.getElementById('notaInput');
+            ratingInput.value = n; 
+            stars.forEach((star, index) => {
+                if (index < n) { star.classList.add('active'); star.innerHTML = '★'; } 
+                else { star.classList.remove('active'); star.innerHTML = '☆'; }
+            });
+        }
+
+        function switchTab(tabName) {
+            document.getElementById('btn-transmitir-nav').classList.remove('active', 'inactive');
+            document.getElementById('btn-acompanhar-nav').classList.remove('active', 'inactive');
+            document.getElementById('initial-prompt').style.display = 'none';
+            document.getElementById('main-form-area').style.display = 'none';
+            document.getElementById('tracking-area').style.display = 'none';
+            
+            document.getElementById('step-1-anonimato').style.display = 'block';
+            document.getElementById('step-2-perfil').style.display = 'none';
+            document.getElementById('step-3-empresa').style.display = 'none';
+            document.getElementById('step-4-formulario').style.display = 'none';
+
+            if(tabName === 'transmitir') {
+                document.getElementById('btn-transmitir-nav').classList.add('active');
+                document.getElementById('btn-acompanhar-nav').classList.add('inactive');
+                document.getElementById('main-form-area').style.display = 'block';
+            } else {
+                document.getElementById('btn-acompanhar-nav').classList.add('active');
+                document.getElementById('btn-transmitir-nav').classList.add('inactive');
+                document.getElementById('tracking-area').style.display = 'block';
+                document.getElementById('tracking-result').style.display = 'none';
+            }
+        }
+
+        function irParaAcompanhamento() {
+            const protocoloGerado = document.getElementById('codigo-gerado').innerText;
+            document.getElementById('success-screen').style.display = 'none';
+            switchTab('acompanhar');
+            document.getElementById('codigoBusca').value = protocoloGerado;
+            document.getElementById('btnConsultar').click();
+        }
+
+        function avancarPassoPerfil(isAnonimo) {
+            relatoState.anonimo = isAnonimo;
+            document.getElementById('step-1-anonimato').style.display = 'none';
+            document.getElementById('step-2-perfil').style.display = 'block';
+            window.scrollTo({ top: document.getElementById('main-form-area').offsetTop - 20, behavior: 'smooth' });
+        }
+
+        function voltarPasso(showId, hideId) {
+            document.getElementById(hideId).style.display = 'none';
+            document.getElementById(showId).style.display = 'block';
+        }
+
+        function avancarPassoEmpresa(perfil) {
+            relatoState.perfil = perfil;
+            document.getElementById('perfilInput').value = perfil;
+            document.getElementById('step-2-perfil').style.display = 'none';
+            document.getElementById('step-3-empresa').style.display = 'block';
+            window.scrollTo({ top: document.getElementById('main-form-area').offsetTop - 20, behavior: 'smooth' });
+        }
+
+        function confirmarEmpresa() {
+            const select = document.getElementById('empresaSelect');
+            if(!select.value) {
+                alert("Por favor, selecione uma empresa da lista para continuar.");
+                return;
+            }
+            avancarPassoFormularioFinal(select.value);
+        }
+
+        function avancarPassoFormularioFinal(empresa) {
+            document.getElementById('empresaInput').value = empresa;
+            
+            const boxNome = document.getElementById('box-nome');
+            const boxEmail = document.getElementById('box-email');
+            const inputNome = document.getElementById('nome');
+            const inputEmail = document.getElementById('email');
+            const anonBanner = document.getElementById('anon-banner');
+
+            if (relatoState.anonimo) {
+                boxNome.style.display = 'none';
+                boxEmail.style.display = 'none';
+                inputNome.required = false;
+                inputEmail.required = false;
+                inputNome.value = "Anônimo";
+                inputEmail.value = "anonimo@sigilo.com";
+                anonBanner.style.display = 'flex';
+            } else {
+                boxNome.style.display = 'block';
+                boxEmail.style.display = 'block';
+                inputNome.required = true;
+                inputEmail.required = true;
+                inputNome.value = "";
+                inputEmail.value = "";
+                anonBanner.style.display = 'none';
+            }
+
+            const assuntoSelect = document.getElementById('assunto');
+            assuntoSelect.innerHTML = '<option value="" disabled selected>Selecione o assunto pertinente...</option>';
+            const culturaDinamica = document.getElementById('cultura-dinamica');
+            const blocoCliente = document.getElementById('bloco-cliente-extras');
+
+            if (relatoState.perfil === 'Colaborador') {
+                culturaDinamica.innerHTML = "💡 <strong>Gestão CSC Support:</strong> Seu relato sobre a empresa <strong>" + empresa + "</strong> está protegido. Garantimos anonimato absoluto e justiça em cada processo.";
+                const opcoesColab = ["Condições de Trabalho", "Assédio ou Discriminação", "Conduta Ética / Liderança", "Ideias e Sugestões Internas", "Fraude ou Desvio", "Outros"];
+                opcoesColab.forEach(op => assuntoSelect.add(new Option(op, op)));
+                blocoCliente.style.display = 'none';
+            } else {
+                culturaDinamica.innerHTML = "💡 <strong>Gestão CSC Support:</strong> Sua voz é fundamental para a <strong>" + empresa + "</strong>. Atuamos com independência para aprimorar sua experiência.";
+                const opcoesCliente = ["Currículos e Oportunidade", "Parcerias, projetos e doações", "Ofertas, serviços e materiais", "Relacionamento com a comunidade", "Entrega de material", "Visita à Unidade", "Odor ou Poeira na Operação", "Impactos das Operações", "Sugestões", "Outros"];
+                opcoesCliente.forEach(op => assuntoSelect.add(new Option(op, op)));
+                blocoCliente.style.display = 'block';
+            }
+
+            document.getElementById('step-3-empresa').style.display = 'none';
+            document.getElementById('step-4-formulario').style.display = 'block';
+            window.scrollTo({ top: document.getElementById('main-form-area').offsetTop - 20, behavior: 'smooth' });
+        }
+
+        function atalhoFornecedor() {
+            switchTab('transmitir');
+            avancarPassoPerfil(false);
+            avancarPassoEmpresa('Cliente');
+        }
+
+        function atalhoAnonimo() {
+            switchTab('transmitir');
+            avancarPassoPerfil(true);
+        }
+
+        function consultarProtocolo(event) {
+            event.preventDefault();
+            const btn = document.getElementById('btnConsultar');
+            const codigo = document.getElementById('codigoBusca').value.trim();
+
+            if (!codigo) return;
+
+            btn.innerText = "Buscando...";
+            btn.disabled = true;
+
+            const formData = new FormData();
+            formData.append('protocolo', codigo);
+
+            fetch('consulta_protocolo.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+
+                if(data.status === "sucesso") {
+                    document.getElementById('tracking-result').style.display = 'block';
+                    
+                    const estagio = data.estagio || 'Envio';
+                    const statusBadge = document.getElementById('status-texto');
+                    statusBadge.innerText = "Status Atual: " + estagio;
+
+                    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+
+                    document.getElementById('step-1').classList.add('active'); 
+                    
+                    if (estagio === 'Captação' || estagio === 'Análise' || estagio === 'Tratativa' || estagio === 'Concluído') {
+                        document.getElementById('step-2').classList.add('active');
+                    }
+                    if (estagio === 'Análise' || estagio === 'Tratativa' || estagio === 'Concluído') {
+                        document.getElementById('step-3').classList.add('active');
+                    }
+                    if (estagio === 'Tratativa' || estagio === 'Concluído') {
+                        document.getElementById('step-4').classList.add('active');
+                        statusBadge.style.backgroundColor = "#25D366"; 
+                        statusBadge.style.color = "white";
+                    } else {
+                        statusBadge.style.backgroundColor = "#eef2f5";
+                        statusBadge.style.color = "var(--dark)";
+                    }
+
+                    const replyBox = document.getElementById('admin-reply-box');
+                    const replyText = document.getElementById('admin-reply-text');
+                    
+                    if (data.resposta && data.resposta.trim() !== "") {
+                        replyText.innerHTML = data.resposta.replace(/\n/g, '<br>');
+                        replyBox.style.display = 'block';
+                        
+                        document.getElementById('step-4').classList.add('active');
+                        statusBadge.style.backgroundColor = "#25D366"; 
+                        statusBadge.style.color = "white";
+                    } else {
+                        replyBox.style.display = 'none';
+                    }
+
+                    btn.innerText = "Consultar Andamento";
+                    btn.disabled = false;
+                } else {
+                    alert("Aviso: " + data.mensagem);
+                    btn.innerText = "Consultar Andamento";
+                    btn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert("Falha na comunicação com os servidores.");
+                btn.innerText = "Consultar Andamento";
+                btn.disabled = false;
+            });
+        }
+
+        function enviarMensagem(event) {
+            event.preventDefault();
+
+            const form = document.getElementById('faleConoscoForm');
+            const btn = document.getElementById('btnEnviar');
+            const originalText = btn.innerText;
+            
+            if (relatoState.perfil === 'Cliente') {
+                const notaInput = document.getElementById('notaInput');
+                if (notaInput && notaInput.value === "0") {
+                    alert("Por favor, selecione as estrelas para avaliar nosso atendimento.");
+                    return;
+                }
+            }
+
+            btn.innerText = "Processando...";
+            btn.disabled = true;
+
+            const formData = new FormData(form);
+
+            fetch('processa_fale_conosco.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async response => {
+                const text = await response.text(); 
+                try {
+                    return JSON.parse(text); 
+                } catch (err) {
+                    console.error("⚠️ ERRO PHP:", text);
+                    throw new Error("O PHP não devolveu um JSON válido.");
+                }
+            })
+            .then(data => {
+                if(data.status === "sucesso") {
+                    
+                    const boxCodigo = document.getElementById('codigo-gerado');
+                    if(boxCodigo) boxCodigo.innerText = data.protocolo;
+                    
+                    const idsParaEsconder = [
+                        'main-form-area', 
+                        'bottom-actions', 
+                        'culture-block', 
+                        'tabs-control'
+                    ];
+                    
+                    idsParaEsconder.forEach(id => {
+                        const elemento = document.getElementById(id);
+                        if (elemento) elemento.style.display = 'none';
+                    });
+
+                    const heroBanner = document.querySelector('.hero-banner');
+                    if (heroBanner) heroBanner.style.display = 'none';
+                    
+                    const successScreen = document.getElementById('success-screen');
+                    if (successScreen) successScreen.style.display = 'block';
+                    
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                } else {
+                    alert("Aviso: " + data.mensagem);
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Falha:', error);
+                alert("Ocorreu um problema ao enviar. Tente novamente.");
+                btn.innerText = originalText;
+                btn.disabled = false;
+            });
+        }
+
+        function copiarProtocolo() {
+            const protocolo = document.getElementById('codigo-gerado').innerText;
+            navigator.clipboard.writeText(protocolo).then(() => {
+                const btn = document.getElementById('btnCopiar');
+                btn.innerHTML = "✅ Copiado!";
+                btn.style.background = "var(--primary)"; btn.style.color = "white";
+                setTimeout(() => {
+                    btn.innerHTML = "Copiar Código";
+                    btn.style.background = "white"; btn.style.color = "var(--dark)";
+                }, 3000);
+            });
+        }
+
+        function baixarComprovante() {
+            const protocolo = document.getElementById('codigo-gerado').innerText;
+            const dataAtual = new Date().toLocaleString('pt-BR');
+            const txt = `COMPROVANTE DE RELATO - CSC SUPPORT\nData: ${dataAtual}\nPROTOCOLO: ${protocolo}\n\nGuarde este código em segurança para consultar o andamento.`;
+            const blob = new Blob([txt], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `CSC_Protocolo_${protocolo}.txt`;
+            link.click();
+        }
+    </script>
+</body>
+</html>

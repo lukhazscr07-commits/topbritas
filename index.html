@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>topbritas</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Ícone da aba do navegador (Favicon) -->
+    <link rel="icon" href="IMG/tb.png" type="image/png">
+</head>
+<body>
+
+<!-- Cabeçalho e Menu Direcionando para Novas Páginas -->
+    <header class="header">
+        <div class="container navbar">
+            <!-- Logo em Imagem (Substitua o src pelo caminho real da sua logo) -->
+            <a href="index.html" class="logo">
+                <img src="IMG/Ativo 3Topbritas.png" alt="Logo TopBritas" class="logo-img">
+            </a>
+           <nav class="menu-desktop">
+                <a href="index.html">Início</a>
+                <a href="catalogo.html">Produtos</a>
+                <a href="empresa.html">Nossa Empresa</a>               
+                <a href="#localizacao">Localização</a> 
+                <a href="https://gruposv.vagas.solides.com.br/">Trabalhe Conosco</a>
+                
+                <!-- Link Fale Conosco adicionado de volta aqui -->
+                <a href="fale-conosco.html">Fale Conosco</a>
+                
+                <!-- Divisor visual para separar os links das redes sociais -->
+                <span class="divisor-nav"></span>
+
+                <!-- Agrupamento das Redes Sociais e Botão de Vendas -->
+                <div class="nav-social">
+                    
+                    <!-- Ícone do Instagram -->
+                    <a href="https://instagram.com/topbritas" target="_blank" title="Instagram" class="icon-nav">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.487.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                        </svg>
+                    </a>
+                    
+                    <!-- Ícone do Facebook -->
+                    <a href="https://facebook.com/topbritas" target="_blank" title="Facebook" class="icon-nav">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                        </svg>
+                    </a>
+
+                    <!-- Botão de WhatsApp Direto para Vendas -->
+                    <a href="https://wa.me/5575982129181?text=Olá!%20Estou%20no%20site%20da%20TopBritas%20e%20gostaria%20de%20falar%20com%20um%20vendedor." target="_blank" title="Falar com Vendedor" class="btn-orcamento nav-whatsapp">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
+                            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.005-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                        </svg>
+                        Vendas
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+   <!-- Entrada: Slider com Efeito de Montanha -->
+    <section id="inicio" class="hero-slider-container shape-montanha">
+        
+        <!-- Slide 1 -->
+        <div class="slide ativo" style="background-image: url('IMG/Capasite.png');">
+            <div class="overlay">
+                <div class="container hero-content">
+                    <!-- Nova caixa de texto com efeito moderno -->
+                    <div class="hero-text-box">
+                        <h1>A base sólida para <span class="destaque-vermelho">qualquer grande obra</span>.</h1>
+                        <p>Tecnologia e força na extração de agregados para a construção civil.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide" style="background-image: url('IMG/Capasite2.png');">
+            <div class="overlay">
+                <div class="container hero-content">
+                    <div class="hero-text-box">
+                        <h1>Capacidade de <span class="destaque-vermelho">Produção Contínua</span>.</h1>
+                        <p>Frota própria e maquinário de ponta para atender grandes demandas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide" style="background-image: url('IMG/Capasite3.png');">
+            <div class="overlay">
+                <div class="container hero-content">
+                    <div class="hero-text-box">
+                        <h1>Qualidade e <span class="destaque-vermelho">Granulometria Perfeita</span>.</h1>
+                        <p>Materiais rigorosamente selecionados para o seu concreto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+<!-- Seção: Como Comprar -->
+    <section id="como-comprar" class="secao-padrao">
+        <div class="container text-center">
+            <h2 class="titulo-secao">Como Comprar na TopBritas</h2>
+            <p class="texto-descricao" style="margin-bottom: 40px;">
+                Criamos um processo de venda ágil e sem burocracia para que sua obra não fique parada. Veja como é simples garantir o seu material:
+            </p>
+
+            <div class="passo-a-passo-grid">
+                <!-- Passo 1 -->
+                <div class="passo-card">
+                    <div class="passo-numero">1</div>
+                    <h3>Escolha o Material</h3>
+                    <p>Acesse nosso catálogo ou converse com nossa equipe técnica para definir a granulometria e o volume exato para a sua necessidade.</p>
+                </div>
+
+                <!-- Passo 2 -->
+                <div class="passo-card">
+                    <div class="passo-numero">2</div>
+                    <h3>Solicite a Cotação</h3>
+                    <p>Envie sua demanda pelo WhatsApp ou pelo site. Nossa equipe retorna rapidamente com os valores e as melhores opções de logística.</p>
+                </div>
+
+                <!-- Passo 3 -->
+                <div class="passo-card">
+                    <div class="passo-numero">3</div>
+                    <h3>Faturamento</h3>
+                    <p>Orçamento aprovado? Emitimos a nota fiscal rapidamente e liberamos as condições de pagamento (faturado para CNPJ ou à vista).</p>
+                </div>
+
+                <!-- Passo 4 -->
+                <div class="passo-card">
+                    <div class="passo-numero">4</div>
+                    <h3>Carregamento e Entrega</h3>
+                    <p>Agendamos a retirada imediata na Pedreira de Nazaré ou despachamos através da nossa frota parceira direto para o seu canteiro.</p>
+                </div>
+            </div>
+
+            <!-- Botão atualizado com Link do WhatsApp e Ícone SVG -->
+            <a href="https://wa.me/5575982129181?text=Olá!%20Vi%20o%20passo%20a%20passo%20no%20site%20e%20gostaria%20de%20iniciar%20meu%20orçamento." target="_blank" class="btn-destaque-grande btn-whatsapp-link" style="margin-top: 40px; display: inline-flex; align-items: center; justify-content: center; gap: 12px;">
+                <!-- Ícone oficial do WhatsApp -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.005-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                </svg>
+                Iniciar meu Orçamento Agora
+            </a>
+        </div>
+    </section>
+
+
+<!-- Chamada para Produtos (Link para o Catálogo com Efeito Parallax) -->
+    <section id="produtos" class="secao-padrao bg-parallax-catalogo">
+        <div class="container text-center conteudo-frente">
+            <h2 class="titulo-secao text-branco">Nosso Catálogo de Agregados</h2>
+            <p class="texto-descricao text-branco" style="margin-bottom: 30px;">
+                Trabalhamos com uma linha completa de <strong>12 produtos</strong> desenvolvidos para atender as mais exigentes especificações técnicas da engenharia moderna.
+            </p>
+            <a href="catalogo.html" class="btn-destaque-grande">
+                 Ver Todos os Produtos
+            </a>
+        </div>
+    </section>
+
+<!-- Chamada para Localização (Design em Card Premium) -->
+    <section id="localizacao" class="secao-padrao">
+        <div class="container">
+            <div class="card-localizacao-premium">
+                
+                <!-- Lado Esquerdo: Texto e Botão -->
+                <div class="texto-localizacao">
+                    <div class="badge-local">📍 Operação Estratégica</div>
+                    <h2 class="titulo-secao" style="text-align: left; margin-bottom: 20px;">Nossa Jazida</h2>
+                    <p class="texto-descricao" style="text-align: left; margin: 0 0 35px 0;">
+                        Nossa força de produção está estrategicamente instalada em <strong>Nazaré-BA</strong>, com logística rápida e acesso facilitado para o escoamento de grandes volumes em toda a região.
+                    </p>
+                    <a href="https://maps.app.goo.gl/4czKxafZ7vhuCdaz5" target="_blank" rel="noopener noreferrer" class="btn-destaque-grande btn-azul">
+                        Ver Rotas Detalhadas
+                    </a>
+                </div>
+                
+                <!-- Lado Direito: Mapa do Google -->
+                <div class="mapa-container-grid">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.393469949805!2d-38.98560092492296!3d-13.01059708730844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x73e1f9b4dd6351f%3A0x972bc984f5553dd0!2zVG9wYnJpdGFzIE1pbmVyYcOnw6Nv!5e0!3m2!1spt-BR!2sbr!4v1785154177154!5m2!1spt-BR!2sbr"
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Nossos Parceiros (Com fundo branco mais escuro/acinzentado) -->
+    <!-- Adicionada a cor #f4f7f9 diretamente no estilo da seção -->
+    <section id="parceiros" class="secao-padrao" style="background-color: #f4f7f9;">
+        <div class="container text-center">
+            <h2 class="titulo-secao">Nossas Parcerias</h2>
+            
+            <div class="partners-wrapper">
+                <div class="partners-strip">
+                    <div class="partners-track">
+                        <img src="IMG/Logos de Parceiros/CSS.png" alt="Parceiro" class="partner-logo">
+                        <img src="IMG/Logos de Parceiros/PVV.png" alt="Parceiro" class="partner-logo">
+                        <img src="IMG/Logos de Parceiros/MSV.png" alt="Parceiro" class="partner-logo">
+                        <img src="IMG/Logos de Parceiros/Super.png" alt="Parceiro" class="partner-logo">
+                        <img src="IMG/Logos de Parceiros/Top.png" alt="Parceiro" class="partner-logo">
+                        <img src="IMG/Logos de Parceiros/PF.png" alt="Parceiro" class="partner-logo">
+                        <img src="IMG/Logos de Parceiros/ViaNobre.png" alt="Parceiro" class="partner-logo">
+
+                        <img src="IMG/Logos de Parceiros/CSS.png" alt="Parceiro" class="partner-logo">
+                        <img src="IMG/Logos de Parceiros/PVV.png" alt="Parceiro" class="partner-logo">
+                        <img src="IMG/Logos de Parceiros/MSV.png" alt="Parceiro" class="partner-logo">
+                        <img src="IMG/Logos de Parceiros/Super.png" alt="Parceiro" class="partner-logo">
+                        <img src="IMG/Logos de Parceiros/Top.png" alt="Parceiro" class="partner-logo">
+                        <img src="IMG/Logos de Parceiros/PF.png" alt="Parceiro" class="partner-logo">
+                        <img src="IMG/Logos de Parceiros/ViaNobre.png" alt="Parceiro" class="partner-logo">
+                    </div>
+                </div>
+
+                <div class="partner-message">
+                    Construir bases sólidas exige grandes alianças. Nossos parceiros garantem a excelência e a inovação na sua obra!
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Chamada para Contato e Vagas (Cards com Imagem) -->
+    <section id="contato" class="secao-padrao" style="background-color: var(--azul-top);">
+        <div class="container">
+            <div class="contato-grid">
+                
+                <!-- Card: Fale Conosco -->
+                <div class="box-card-moderno">
+                    <!-- Substitua o src pela sua imagem de referência -->
+                    <img src="IMG/Imagem support.png" alt="Atendimento TopBritas" class="img-card-topo">
+                    <div class="conteudo-card">
+                        <h2 class="titulo-secao" style="font-size: 1.8rem;">Fale Conosco e Ética</h2>
+                        <p>Um ambiente seguro, ético e totalmente sigiloso para denúncias, sugestões, reclamações ou suporte técnico.</p>
+                        <a href="fale-conosco.html" class="btn-destaque-grande btn-card">Acessar Canal Seguro</a>
+                    </div>
+                </div>
+
+                <!-- Card: Trabalhe Conosco -->
+                <div class="box-card-moderno">
+                    <!-- Substitua o src pela sua imagem de referência -->
+                    <img src="IMG/vagas de emprego.png" alt="Equipe TopBritas" class="img-card-topo">
+                    <div class="conteudo-card">
+                        <h2 class="titulo-secao" style="font-size: 1.8rem;">Faça Parte da Equipe</h2>
+                        <p>Estamos sempre em busca de talentos para a operação e administração. Venha construir o futuro com a gente.</p>
+                        <a href="https://gruposv.vagas.solides.com.br/" class="btn-destaque-grande btn-card">Ver Vagas Disponíveis</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Assistente Virtual (Vicentinho) -->
+    <div class="chat-container">
+ <div class="chat-box" id="caixa-chat">
+            <div class="chat-header">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <!-- Substitua o link abaixo pela imagem real do seu bot -->
+                    <img src="IMG/vicente 1.png" alt="Avatar Inteligência" class="avatar-bot">
+                    <span>Fale com o Vicentinho</span>
+                </div>
+                <button id="fechar-chat" class="btn-fechar">×</button>
+            </div>
+            
+            <div class="chat-body" id="chat-messages">
+                <!-- As mensagens vão aparecer aqui dinamicamente -->
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Digite sua mensagem...">
+                <button>Enviar</button>
+            </div>
+        </div>
+        <!-- Botão Redondo com Foto e Notificação -->
+        <button class="btn-vicentinho-img" id="btn-vicentinho">
+            <!-- Use a mesma imagem que você colocou no cabeçalho do chat -->
+            <img src="IMG/vicente 1.1.png" alt="Assistente Virtual">
+            <!-- O número 1 da notificação -->
+            <span class="badge-notificacao" id="badge-chat">1</span>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
