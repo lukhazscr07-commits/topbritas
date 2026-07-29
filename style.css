@@ -125,55 +125,6 @@ body {
     font-weight: bold;
 }
 
-/* --- Ajustes Mobile (Carrossel e Dots) --- */
-.slider-dots {
-    display: none; /* Oculto no desktop */
-    justify-content: center;
-    gap: 8px;
-    margin-top: 20px;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    background-color: #ccc;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.dot.active {
-    background-color: var(--vermelho-top);
-}
-
-@media (max-width: 768px) {
-    .carrossel-container {
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 10px;
-        /* Esconde a barra de rolagem */
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-    
-    .carrossel-container::-webkit-scrollbar {
-        display: none;
-    }
-
-    .produtos-grid {
-        display: flex;
-        gap: 15px;
-    }
-
-    .card-produto {
-        min-width: 80vw; /* Ocupa 80% da tela mobile */
-        scroll-snap-align: center;
-    }
-
-    .slider-dots {
-        display: flex;
-    }
-}
-
 /* --- Assistente Virtual --- */
 .chat-container {
     position: fixed;
@@ -222,9 +173,12 @@ body {
 
 .chat-body {
     padding: 15px;
-    height: 150px;
+    height: 350px; /* Aumentei a altura para caber bem os botões */
     background-color: var(--fundo-claro);
     font-size: 14px;
+    overflow-y: auto; /* Adiciona barra de rolagem quando necessário */
+    display: flex;
+    flex-direction: column;
 }
 
 .chat-input {
@@ -402,11 +356,6 @@ body {
     gap: 40px;
 }
 
-@media (max-width: 768px) {
-    .contato-grid { grid-template-columns: 1fr; }
-    .hero-content h1 { font-size: 2.2rem; }
-}
-
 .box-contato {
     padding: 40px;
     background-color: var(--branco);
@@ -481,13 +430,6 @@ body {
     z-index: 10; 
 }
 
-@media (max-width: 768px) {
-    .shape-montanha {
-        border-radius: 0 0 50% 50% / 0 0 5vw 5vw;
-        /* Sombra levemente ajustada para não ficar exagerada no celular */
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); 
-    }
-}
 /* --- Botões de Chamada (CTAs) --- */
 .btn-destaque-grande {
     display: inline-block;
@@ -523,6 +465,7 @@ body {
     padding: 15px 0;
     border-radius: 8px;
 }
+
 /* --- Seção Como Comprar (Passo a Passo) --- */
 .passo-a-passo-grid {
     display: grid;
@@ -595,27 +538,13 @@ body {
     }
 }
 
-.chat-body {
-    padding: 15px;
-    height: 350px; /* Aumentei a altura para caber bem os botões */
-    background-color: var(--fundo-claro);
-    font-size: 14px;
-    overflow-y: auto; /* Adiciona barra de rolagem quando necessário */
-    display: flex;
-    flex-direction: column;
-}
-
 /* ========================================================== */
 /* --- EFEITO PARALLAX (FUNDO FIXO) - SEÇÃO CATÁLOGO      --- */
 /* ========================================================== */
 .bg-parallax-catalogo {
     position: relative;
-    /* Coloque o link/caminho da foto real da sua pedreira aqui dentro de url() */
     background-image: url('IMG/DSC02509.jpg');
-    
-    /* É ESTA LINHA QUE DEIXA A IMAGEM PARADA AO ROLAR */
     background-attachment: fixed; 
-    
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -792,17 +721,6 @@ body {
 .btn-whatsapp-carrinho:hover {
     background-color: #1ebe5d;
     transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-    .flex-carrinho {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-    .btn-whatsapp-carrinho {
-        width: 100%;
-    }
 }
 
 /* --- Botões de Quantidade (- e +) --- */
@@ -1005,24 +923,6 @@ body {
     }
 }
 
-/* Ajustes finos para o mobile (celular) */
-@media (max-width: 768px) {
-    .logo-img { max-height: 35px; }
-    
-    .overlay {
-        padding-bottom: 30px; 
-    }
-    
-    .hero-text-box {
-        padding: 15px 20px; /* Caixa ainda mais justa no celular */
-        border-radius: 12px;
-        width: 85%; 
-    }
-    
-    /* Fontes ainda menores para telas pequenas */
-    .hero-text-box h1 { font-size: 1.3rem; }
-    .hero-text-box p { font-size: 0.85rem; }
-}
 /* --- Botão do WhatsApp (Verde Oficial) --- */
 .btn-whatsapp-link {
     background-color: #25D366 !important; /* Força a cor verde */
@@ -1147,26 +1047,6 @@ body {
 @keyframes scrollPartners {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); } 
-}
-
-/* Ajustes perfeitos para o Celular */
-@media (max-width: 768px) {
-    .partners-track { gap: 40px; }
-    
-    .partner-logo { 
-        height: 18px; 
-    } 
-    
-    .partners-strip {
-        padding: 22px 0; 
-        border-radius: 35px; /* Mantém a proporção redonda em telas pequenas */
-        border-width: 2px; /* Borda um pouco mais fina no mobile para não parecer grosseira */
-    }
-
-    .partner-message { 
-        font-size: 0.9rem; 
-        margin-top: 12px;
-    }
 }
 
 /* ========================================================== */
@@ -1356,14 +1236,6 @@ body {
     .video-wrapper-moderno {
         padding-bottom: 56.25%; 
         height: 0;
-    }
-}
-
-/* Ajustes para Celulares */
-@media (max-width: 768px) {
-    .video-wrapper-moderno {
-        border-radius: 8px; /* Borda um pouco menor no celular */
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Sombra ainda mais leve */
     }
 }
 
@@ -1659,8 +1531,279 @@ body {
     box-sizing: border-box; /* Garante que o padding não estoure a tela */
 }
 
-/* Ajustes finos para celulares */
+/* ========================================================== */
+/* --- ANIMAÇÕES DE SCROLL (REVEAL)                       --- */
+/* ========================================================== */
+
+/* Classe base: Esconde o elemento e o empurra um pouco para baixo */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Transição suave e elegante */
+}
+
+/* Classe ativa: O elemento aparece e volta para a posição original */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 
+   Se quiser que os itens apareçam um depois do outro (efeito cascata em grids):
+   Você pode aplicar essas classes manualmente nos cartões.
+*/
+.reveal.delay-1 { transition-delay: 0.1s; }
+.reveal.delay-2 { transition-delay: 0.2s; }
+.reveal.delay-3 { transition-delay: 0.3s; }
+.reveal.delay-4 { transition-delay: 0.4s; }
+
+/* ========================================================== */
+/* --- AJUSTES APP MOBILE COMPLETOS (iOS, ANDROID E MENU) --- */
+/* ========================================================== */
+
+.btn-menu-mobile { display: none; background: transparent; border: none; cursor: pointer; }
+.dots-container { display: none; } /* Oculto no desktop */
+
 @media (max-width: 768px) {
+    
+    /* 1. Menu Hambúrguer (Deslizante por cima da página) */
+    .btn-menu-mobile { display: block; z-index: 1001; }
+    
+    .navbar { 
+        flex-wrap: wrap; 
+        position: relative; /* Importante para o menu cair a partir daqui */
+    }
+    
+    .menu-desktop {
+        display: none; 
+        position: absolute; /* Faz o menu flutuar por cima do conteúdo */
+        top: 100%; /* Começa exatamente abaixo do botão hambúrguer */
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: rgba(0, 65, 96, 0.98); /* Fundo azul levemente translúcido (premium) */
+        backdrop-filter: blur(10px); /* Efeito vidro da Apple */
+        -webkit-backdrop-filter: blur(10px);
+        padding: 30px 20px;
+        text-align: center;
+        gap: 25px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5); /* Sombra pesada para destacar */
+        z-index: 1000;
+        animation: slideDownMenu 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        border-radius: 0 0 20px 20px; /* Arredonda as bordas de baixo */
+    }
+
+    .menu-desktop.ativo { display: flex; }
+    .divisor-nav { display: none; }
+    
+    .menu-desktop a { 
+        margin: 0; 
+        font-size: 1.2rem; 
+        font-weight: bold;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05); /* Linhas finas separando links */
+    }
+    
+    /* Remove a linha do último link para ficar clean */
+    .menu-desktop a:nth-last-child(2) { border-bottom: none; }
+
+    .nav-social { justify-content: center; margin-top: 15px; gap: 20px; }
+
+    @keyframes slideDownMenu { 
+        from { opacity: 0; transform: translateY(-20px); } 
+        to { opacity: 1; transform: translateY(0); } 
+    }
+
+    /* 2. Ajustes Gerais de Espaçamento e Tipografia */
+    .secao-padrao {
+        padding: 50px 0 !important; /* Reduz espaços brancos exagerados no mobile */
+    }
+    
+    .titulo-secao {
+        font-size: 1.8rem !important; /* Títulos menores para não quebrar linhas */
+        margin-bottom: 15px !important;
+    }
+
+    .texto-descricao {
+        font-size: 1rem !important;
+        padding: 0 10px;
+    }
+
+    /* 3. Hero / Banners Principais */
+    .hero-empresa {
+        min-height: 250px !important;
+        height: 35vh !important;
+    }
+
+    .titulo-banner {
+        font-size: 2rem !important;
+    }
+
+    .subtitulo-banner {
+        font-size: 1.1rem !important;
+        padding: 0 15px;
+    }
+
+    /* 4. Grade de Apresentação (A Empresa) */
+    .grid-apresentacao {
+        grid-template-columns: 1fr !important; /* Empilha texto em cima, foto embaixo */
+        gap: 30px !important;
+        text-align: center;
+    }
+    
+    .texto-apresentacao h2 {
+        text-align: center !important;
+    }
+
+    /* 5. Ajustes Específicos do iOS (Safari) */
+    input[type="number"], 
+    input[type="text"], 
+    button, 
+    .btn-orcamento, 
+    .btn-destaque-grande {
+        border-radius: 12px; /* Garante que respeite o seu design */
+    }
+
+    .chat-input input {
+        font-size: 16px !important; /* Evita que a tela dê zoom automático */
+    }
+
+    /* 6. Carrinho Flutuante mais compacto */
+    .flex-carrinho {
+        flex-direction: row !important; /* Mantém os itens lado a lado */
+        justify-content: space-between;
+    }
+
+    .resumo {
+        font-size: 0.9rem !important;
+        text-align: left !important;
+    }
+
+    #qtd-itens {
+        font-size: 1.1rem !important;
+    }
+
+    .btn-whatsapp-carrinho {
+        width: auto !important;
+        padding: 10px 15px !important;
+        font-size: 0.9rem !important;
+    }
+/* 7. Catálogo: 2 Produtos por Linha (Visual Harmonizado e Números Ajustados) */
+    .catalogo-grid {
+        display: grid !important; 
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 10px !important; /* Reduzi o buraco entre os cards para dar mais largura a eles */
+        padding: 0 5px !important; 
+    }
+
+    .card-catalogo { 
+        padding: 12px 8px !important; /* Ajuste para o cartão aproveitar melhor o espaço */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important; 
+    }
+    
+    .img-produto { 
+        height: 105px !important; 
+        margin-bottom: 12px !important; 
+        border-radius: 8px !important;
+    }
+    
+    .card-catalogo h3 { 
+        font-size: 0.9rem !important; 
+        min-height: 36px !important; 
+        margin-bottom: 12px !important; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.2 !important;
+    }
+    
+    /* Pílula de compra com margens internas menores */
+    .controle-compra { 
+        padding: 3px 4px !important; /* Menos "gordura" nas bordas */
+        flex-wrap: nowrap !important; 
+        justify-content: space-between !important; 
+        align-items: center !important;
+        border-radius: 20px !important;
+        width: 100% !important; 
+    }
+    
+    /* Botões redondos um milímetro menores */
+    .btn-qtd { 
+        width: 28px !important; 
+        height: 28px !important; 
+        font-size: 1.1rem !important; 
+        flex-shrink: 0 !important; /* Garante que o botão nunca amasse */
+    }
+    
+    /* Campo numérico com o dobro de espaço para não cortar */
+    .input-m3 { 
+        width: 48px !important; /* Aumentamos de 35px para 48px */
+        font-size: 1rem !important; /* Fonte exata para caber os 3 dígitos */
+        padding: 0 !important;
+        margin: 0 !important;
+        text-align: center !important;
+        background: transparent !important;
+    }
+    
+    /* Unidade m³ segura e alinhada */
+    .unidade { 
+        font-size: 0.75rem !important; 
+        width: auto !important; 
+        margin-top: 0 !important;
+        margin-left: -5px !important; /* Gruda o m³ perto do número */
+        color: #888 !important;
+        flex-shrink: 0 !important; /* Impede a letra m³ de ser esmagada */
+    }
+    /* 8. Carrosséis com Deslize (Swipe) */
+    .mobile-carousel {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding-bottom: 15px;
+        -ms-overflow-style: none; /* IE e Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .mobile-carousel::-webkit-scrollbar { display: none; /* Chrome e Safari */ }
+    
+    .mobile-carousel > div {
+        min-width: 85vw; /* Cada cartão ocupa 85% da tela */
+        scroll-snap-align: center;
+    }
+
+    /* 9. Bolinhas Indicadoras (Dots) */
+    .dots-container {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 5px;
+        margin-bottom: 30px;
+    }
+    
+    .dot-app {
+        width: 10px; height: 10px;
+        border-radius: 50%;
+        background-color: #d1d1d1;
+        transition: 0.3s ease;
+    }
+    
+    .dot-app.ativo { 
+        background-color: var(--vermelho-top); 
+        transform: scale(1.2); 
+    }
+}
+
+/* Para telas MUITO pequenas (iPhone SE, Galaxy antigos) */
+@media (max-width: 380px) {
+    .titulo-secao { font-size: 1.5rem !important; }
+    .btn-destaque-grande { padding: 12px 20px !important; font-size: 1rem !important; }
+    .nav-social { flex-wrap: wrap; justify-content: center; }
+    
     .img-card-topo {
         height: 180px; /* Imagem um pouco menor no celular */
     }
@@ -1671,4 +1814,66 @@ body {
         font-size: 1.05rem;
         padding: 15px;
     }
+}
+
+/* 10. Chat Vicentinho em Tela Cheia no Mobile */
+@media (max-width: 768px) {
+    .chat-box {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw !important; /* Força 100% da largura no mobile */
+        height: 100vh !important; /* Força 100% da altura no mobile */
+        max-width: 100vw !important; /* Sobrescreve restrições de desktop */
+        margin: 0;
+        border-radius: 0; /* Remove bordas arredondadas para encostar nos cantos */
+        border: none;
+        z-index: 2000; /* Garante que fique por cima de TUDO */
+        display: none; /* Mantém oculto por padrão */
+        flex-direction: column;
+    }
+
+    .chat-box.ativo {
+        display: flex !important; /* Usa !important para garantir a exibição */
+    }
+
+    .chat-body {
+        /* Altura calculada para ocupar o espaço restante sem sumir atrás do input */
+        height: calc(100vh - 120px) !important; 
+        border-radius: 0;
+        flex-grow: 1; /* Permite que o corpo expanda para preencher a tela */
+    }
+
+    /* Ajuste fino no cabeçalho do chat mobile */
+    .chat-header {
+        padding: 20px 15px; /* Aumenta a área de toque no celular */
+        border-radius: 0;
+    }
+
+    /* Esconde o botão flutuante quando o chat está aberto para não poluir a tela */
+    .chat-box.ativo ~ .btn-vicentinho-img {
+        display: none !important;
+    }
+}
+
+/* ========================================================== */
+/* --- CONTROLE DE IMAGENS DO BANNER (DESKTOP E MOBILE)   --- */
+/* ========================================================== */
+
+/* IMAGENS PADRÃO (DESKTOP) */
+#slide-1 { background-image: url('IMG/Capasite.png'); }
+#slide-2 { background-image: url('IMG/Capasite2.png'); }
+#slide-3 { background-image: url('IMG/Capasite3.png'); }
+#banner-empresa { background-image: url('IMG/Capasite.png'); /* Sua imagem desktop aqui */ }
+
+/* IMAGENS EXCLUSIVAS PARA MOBILE (Até 768px de largura) */
+@media (max-width: 768px) {
+    /* 
+       Atenção: Substitua os nomes 'IMG/CapasiteMobile1.png', etc.,
+       pelos nomes exatos das imagens que você salvou na sua pasta IMG.
+    */
+    #slide-1 { background-image: url('IMG/CapasiteMobile.png'); }
+    #slide-2 { background-image: url('IMG/CapasiteMobile2.png'); }
+    #slide-3 { background-image: url('IMG/CapasiteMobile3.png'); }
+    #banner-empresa { background-image: url('IMG/CapasiteMobile.png'); /* Sua imagem mobile aqui */ }
 }
